@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "covid-vision", "covid-vision.csproj", "{44D6EBFA-F8F5-4DD3-995D-73F0DDC412E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8AA19B75-196F-467A-B489-346995366A86}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44D6EBFA-F8F5-4DD3-995D-73F0DDC412E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D6EBFA-F8F5-4DD3-995D-73F0DDC412E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D6EBFA-F8F5-4DD3-995D-73F0DDC412E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D6EBFA-F8F5-4DD3-995D-73F0DDC412E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C30892B-1A97-4116-8643-24B926B6400B}
+	EndGlobalSection
+EndGlobal
