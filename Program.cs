@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using SkiaSharp;
 
 using Windows.Storage;
-
+using Windows.UI.Xaml;
 
 namespace ComputerVisionQuickstart
 {
@@ -88,17 +88,21 @@ namespace ComputerVisionQuickstart
                 foreach (ReadResult item in readResult.AnalyzeResult.ReadResults) {
                     foreach (Line line in item.Lines) {
                         if (pattern.IsMatch(line.Text)) {
-                            IList<double?> ihiBbox = line.BoundingBox;
+                            List<float> ihiBbox = new();
+                            foreach (var i in line.BoundingBox)
+                            {
+                                ihiBbox.Add((float)i!);
+                            }
+                           
                             
-                            
-                            double width = Math.Max((double) ihiBbox[2], (double) ihiBbox[4]) - Math.Min((double) ihiBbox[0], (double) ihiBbox[6]);
-                            double height = Math.Max((double) ihiBbox[5], (double) ihiBbox[7]) - Math.Min((double) ihiBbox[1], (double) ihiBbox[3]);
+                            float width = Math.Max(ihiBbox[2], ihiBbox[4]) - Math.Min(ihiBbox[0], ihiBbox[6]);
+                            float height = Math.Max(ihiBbox[5], ihiBbox[7]) - Math.Min(ihiBbox[1], ihiBbox[3]);
                              
                             SKBitmap imageBitmap = new();
                             imageBitmap = SKBitmap.Decode(imageMemoryStreamForManipulation);
                             
                             SKCanvas imageCanvas = new SKCanvas(imageBitmap);
-                            imageCanvas.DrawRect((float) ihiBbox[0], (float)ihiBbox[1], (float)width, (float)height, new SKPaint() { Color = SKColors.Black, Style = SKPaintStyle.Fill });
+                            imageCanvas.DrawRect(ihiBbox[0], ihiBbox[1], width, height, new SKPaint() { Color = SKColors.Black, Style = SKPaintStyle.Fill });
                             
                             try
                             {
