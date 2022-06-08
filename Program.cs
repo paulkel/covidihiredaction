@@ -1,4 +1,9 @@
-﻿using System.Text.RegularExpressions;
+﻿// THIS CODE IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND,
+// EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES
+// OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+
+
+using System.Text.RegularExpressions;
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 using Microsoft.Extensions.Configuration;
