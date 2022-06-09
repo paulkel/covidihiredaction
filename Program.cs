@@ -57,6 +57,7 @@ namespace ComputerVisionQuickstart
             ReadOperationResult readResult = new();
             MemoryStream imageMemoryStreamForAnalysis = new();
             MemoryStream imageMemoryStreamForManipulation = new();
+            Regex pattern = new Regex(@"^(\d{4} ){3}\d{4}$");
 
             HttpResponseMessage response = await new System.Net.Http.HttpClient().GetAsync(urlFile);
             if (response.IsSuccessStatusCode)
@@ -93,17 +94,15 @@ namespace ComputerVisionQuickstart
 
             if (readResult.Status == OperationStatusCodes.Succeeded)
             {
-                Regex pattern = new Regex(@"^(\d{4} ){3}\d{4}$");
                 foreach (ReadResult item in readResult.AnalyzeResult.ReadResults) {
                     foreach (Line line in item.Lines) {
                         if (pattern.IsMatch(line.Text)) {
                             List<float> ihiBbox = new();
-                            foreach (var i in line.BoundingBox)
+                            foreach (var coordinate in line.BoundingBox)
                             {
-                                ihiBbox.Add((float)i!);
+                                ihiBbox.Add((float) coordinate!);
                             }
                            
-                            
                             float width = Math.Max(ihiBbox[2], ihiBbox[4]) - Math.Min(ihiBbox[0], ihiBbox[6]);
                             float height = Math.Max(ihiBbox[5], ihiBbox[7]) - Math.Min(ihiBbox[1], ihiBbox[3]);
                              
